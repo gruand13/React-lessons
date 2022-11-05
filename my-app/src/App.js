@@ -1,56 +1,27 @@
-import {Component} from 'react';
+
 import './App.css';
 
-const Header = () =>{
-  return <h2>Hello world</h2>
+
+// use destructurizatin props object
+function WhoAmI ({name, surname, link}){
+    return (
+        <div>
+            {/* if object name.first name */}
+            <h1>My name is {name()}, surname - {surname}</h1>
+            <a href={link}>My profile</a>
+        </div>
+    )
 }
 
-
-// const Field = ()=>{
-//   const holder ="Enterhere";
-//   const styledField = {
-//     width: '300px'
-//   }
-//   return <input placeholder={holder} 
-//         type='text' 
-//         style={styledField}/>
-// }
-
-class Field extends Component {
-    render(){
-    const holder ="Enterhere";
-    const styledField = {
-    width: '300px'
-    };
-        return <input placeholder={holder} 
-        type='text' 
-        style={styledField}/>
-    }
-}
-
-
-
-
-function Btn(){
-  // const text="log in";
-  const logged= false;
-  // function res(){
-  //   return "log In";
-  // }
-  // const p=<p>LOG IN</p>;
-  return <button>{logged ? "enter" : "Log in"}</button>
-
-}
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <Field/>
-      <Btn/>
-     
+        {/* if object firstName: "Alex" */}
+        <WhoAmI name={()=> {return "John"}} surname="Hrusheuski" link="facebook.com"/>
+        <WhoAmI name={()=> {return "John"}} surname="Pupkin" link="vk.com"/>
     </div>
   );
 }
-export {Header};
+
 export default App;
